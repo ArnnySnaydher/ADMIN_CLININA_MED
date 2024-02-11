@@ -24,7 +24,8 @@ export class HeaderComponent {
         this.miniSidebar = false;
       }
     });
-    this.user = this.auth.user
+    let USER =localStorage.getItem("user")
+    this.user = JSON.parse(USER? USER:"");
     console.log(this.user)
   }
 
