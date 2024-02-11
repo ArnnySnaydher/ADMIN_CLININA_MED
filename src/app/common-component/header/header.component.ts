@@ -14,6 +14,7 @@ export class HeaderComponent {
   public openBox = false;
   public miniSidebar  = false;
   public addClass = false;
+  public user:any;
 
   constructor(public router: Router,private sideBar: SideBarService, public auth:AuthService) {
     this.sideBar.toggleSideBar.subscribe((res: string) => {
@@ -23,6 +24,8 @@ export class HeaderComponent {
         this.miniSidebar = false;
       }
     });
+    this.user = this.auth.user
+    console.log(this.user)
   }
 
   openBoxFunc() {

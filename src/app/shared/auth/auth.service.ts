@@ -10,11 +10,25 @@ import { catchError, flatMap, map, of } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-
+  user:any;
+  token:any;
   constructor(
     private router: Router,
     public http: HttpClient
-  ) { }
+  ) {
+    this.getLocalStorage()
+   }
+
+  getLocalStorage(){
+    if(localStorage.getItem("token") && localStorage.getItem("user")){
+      let USER = localStorage.getItem("user")
+      this.user=JSON.parse(USER ?  USER : '');
+      this.token=localStorage.getItem('token');
+    }else{
+      this.user=null
+      this.token = null
+    }
+  }
 
   login(email: String, password: String) {
     // localStorage.setItem('authenticated', 'true');

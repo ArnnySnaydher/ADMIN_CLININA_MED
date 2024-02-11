@@ -80,7 +80,7 @@
                       class="profile-views toggle-password"
                     ></span>
                   </div>
-                  <div class="forgotpass">
+                  <!-- <div class="forgotpass">
                     <div class="remember-me">
                       <label
                         class="custom_check mr-2 mb-0 d-inline-flex remember-me"
@@ -91,7 +91,14 @@
                       </label>
                     </div>
                     <a [routerLink]="routes.forgotPassword">Forgot Password?</a>
-                  </div>
+                  </div> -->
+                  
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="ERROR">
+                    <strong>Error!</strong>El Usuario y la contraseña son incorrectos.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"> </span>
+                    </button>
+                </div>
                   <div class="form-group login-btn">
                     <button
                       [disabled]="form.invalid"
@@ -104,13 +111,13 @@
                 </form>
                 <!-- /Form -->
 
-                <div class="next-sign">
+                <!-- <div class="next-sign">
                   <p class="account-subtitle">
                     Need an account?
                     <a [routerLink]="routes.register">Sign Up</a>
                   </p>
 
-                  <!-- Social Login -->
+                
                   <div class="social-login">
                     <a href="javascript:;" 
                       ><img src="assets/img/icons/login-icon-01.svg" alt=""
@@ -122,8 +129,9 @@
                       ><img src="assets/img/icons/login-icon-03.svg" alt=""
                     /></a>
                   </div>
-                  <!-- /Social Login -->
-                </div>
+                  
+                </div> -->
+                
               </div>
             </div>
           </div>

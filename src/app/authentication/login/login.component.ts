@@ -12,7 +12,7 @@ import { routes } from 'src/app/shared/routes/routes';
 export class LoginComponent implements OnInit {
   public routes = routes;
   public passwordClass = false;
-
+  public ERROR =false;
   form = new FormGroup({
     email: new FormControl('josecode@gmail.com', [
       Validators.required,
@@ -34,15 +34,16 @@ export class LoginComponent implements OnInit {
 
   loginFormSubmit() {
     if (this.form.valid) {
+      this.ERROR=false;
       this.auth.login(this.form.value.email ? this.form.value.email : '', this.form.value.password ? this.form.value.password:'')
       .subscribe((resp:any)=>{
-        console.log(resp)
+        // console.log(resp)
         if(resp){
             //El login es exitoso
             this.router.navigate([routes.adminDashboard]);
         }else{
           //El login no es exitoso
-          alert("No existe usuario")
+          this.ERROR  =true
         }
       },error=>{
         console.log(error)
